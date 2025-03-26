@@ -1,3 +1,5 @@
+'use client';
+
 import { Recording } from '@/types/supabase';
 import { formatDuration } from '@/lib/utils';
 

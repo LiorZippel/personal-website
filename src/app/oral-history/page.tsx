@@ -1,4 +1,4 @@
-import { RecordingCard } from '@/components/oral-history/RecordingCard';
+import { RecordingList } from '@/components/oral-history/RecordingList';
 import { supabase } from '@/lib/supabase';
 
 export const revalidate = 3600; // Revalidate every hour
@@ -29,18 +29,7 @@ export default async function OralHistoryPage() {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {recordings.map((recording) => (
-          <RecordingCard
-            key={recording.id}
-            recording={recording}
-            onPlay={(rec) => {
-              // TODO: Implement audio playback
-              console.log('Playing:', rec.title);
-            }}
-          />
-        ))}
-      </div>
+      <RecordingList recordings={recordings} />
     </div>
   );
 } 
